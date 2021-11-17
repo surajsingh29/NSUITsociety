@@ -1,0 +1,232 @@
+body{
+	font-family: Arvo, serif;
+    background: url("IT1.jpg") no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.fa{
+    padding-right: 10px;
+}
+
+.navbar-custom{
+	background-color: #1b4169;
+}
+
+.navbar-custom .navbar-brand{
+	display: inline-flex;
+	color: #ffffff;
+}
+
+.navbar-custom .navbar-brand img {
+   width: 40px;
+   height: 30px;
+   margin-top: -5px;
+   padding-right: 10px;
+}
+
+.navbar-custom .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+
+.navbar-custom .navbar-nav li a{
+	color: #fff;
+}
+
+.navbar-custom .navbar-nav li a:hover{
+	background-color: #c70013;
+}
+
+.main-logo{
+	text-align: center;
+	width: 100%;
+}
+
+.main-logo img{
+	width: 50%;
+}
+
+.about{
+	background-color: white;
+}
+
+.about-society{
+	padding-top: 40px;
+	text-align: center;
+	width: 80%;
+	margin: 0 10%;
+	font-size: 1.6rem;
+}
+
+.vision, .mission, .objectives{
+	width: 80%;
+	margin: 0 10%;
+}
+
+.profiles{
+	text-align: center;
+    padding-bottom: 15px;
+}
+
+/*BREADCRUMB*/
+
+.breadcrumb{
+    margin-top: 50px;
+}
+
+.breadcrumb-py{
+    display: inline-flex;
+    list-style: none;
+    margin-left: 10px;
+}
+
+.roles{
+    margin: 10px 10% 0 10%; 
+    padding-top: 80px;
+    width: 80%;
+    text-align: center;
+}
+
+.members{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 20px 10%;
+    align-items: center;
+}
+
+.members h4{
+    padding-right: 20px;
+}
+
+.team_section{
+    padding-top: 10px;
+    width: 70%;
+    margin: 20px 15%;
+}
+
+.team_section h3{
+    text-align: center;
+    padding: 20px 0;
+}
+
+.main_members{
+    padding-top: 30px;
+    display: inline-flex;
+}
+
+.main_members img{
+    border-radius: 100px;
+    margin-right: 40px;
+}
+
+
+.theme-blue {
+    padding-top: 30px;
+    background: #1b4169;
+    color: white;
+}
+
+.theme-blue a{
+    text-decoration: none;
+    color: white;
+}
+
+.border-bottom{
+    border-bottom: 2px solid white;
+}
+
+.social-icon{
+    list-style: none;
+    display: inline-flex;
+}
+
+.aos-init a img{
+    width: 80%;
+}
+
+.aos-init ul{
+    list-style: none;
+}
+
+.aos-init ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.aos-init ul li a:hover{
+    color: #ff2222;
+}
+
+.footer-container{
+    background-color: rgb(63, 47, 27);
+}
+
+.footer-body{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    border-bottom: 3px solid white;
+}
+
+.footer-content{
+    padding: 20px 0;
+    text-align: center;
+    width: 32%;
+}
+
+.footer-brand img{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.footer-social{
+    padding: 10px 0;
+}
+
+.footer-social a{
+    font-size: 18px;
+    padding: 0 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-social a .fa:hover{
+    font-size: 22px;
+}
+
+.footer-content h2{
+    color: cornsilk;
+    letter-spacing: 1px;
+}
+
+.quicklinks{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: -20px;
+}
+
+.quicklinks li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.quicklinks li a:hover{
+    text-decoration: underline;
+}
+
+.footer-foot{
+    text-align: center;
+    color: cornsilk;
+    font-size: 16px;
+    padding: 8px 0;
+}

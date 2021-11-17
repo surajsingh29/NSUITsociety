@@ -172,6 +172,7 @@ body{
 .footer-body{
     width: 100%;
     display: inline-flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     border-bottom: 3px solid white;
 }

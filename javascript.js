@@ -25,7 +25,10 @@ $("#contactform").submit(function(event){
 
 });
 
-
+function dataReset()
+{
+    document.getElementById('contactform').reset();
+}
 
 
 document.getElementById('evtmem').style.display = "none";

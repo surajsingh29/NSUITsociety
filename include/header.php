@@ -35,7 +35,7 @@
                 <div class="modal-dialogue">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button class="close" data-dismiss="modal">&times;</button>
+                            <button class="close" onclick="dataReset()" data-dismiss="modal">&times;</button>
                             Contact Us:
                         </div>
                         <div class="modal-body">
@@ -62,8 +62,8 @@
                             </div>
                             <div class="modal-footer">
                                 <input class="btn green" name="login" type="submit" value="Submit">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Cancel
+                                <button type="button" onclick="dataReset()" class="btn btn-default" data-dismiss="modal">
+                                Close
                                 </button>
                             </div>
                         </div>

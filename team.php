@@ -1,4 +1,27 @@
 <?php
+
+session_start();
+
+error_reporting();
+
+include('connection.php');
+
+//$name = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+
+$sql = "SELECT * FROM society_members";
+$sql1 = "SELECT * FROM pubrelteam";
+$sql2 = "SELECT * FROM technicalteam";
+$sql3 = "SELECT * FROM eventteam";
+$sql4 = "SELECT * FROM webappteam";
+$sql5 = "SELECT * FROM contentteam";
+
+$result = mysqli_query($link,$sql);
+$result1 = mysqli_query($link,$sql1);
+$result2 = mysqli_query($link,$sql2);
+$result3 = mysqli_query($link,$sql3);
+$result4 = mysqli_query($link,$sql4);
+$result5 = mysqli_query($link,$sql5);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,100 +64,86 @@
         </div>
 
         <div id="team_members" class="team_section">
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4><i>Gaurav Kumar <i>(President)</i></h4><p> loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sneha Kumari <i>(Vice President)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Malini Tandi <i>(General Secretary)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sidhant Basa <i>(General Secretary)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Simran Kaur <i>(General Secretary)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Satyam Kumar <i>(Treasurer)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Reshmi Kumari <i>(Co-Treasurer)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-        </div>
-
-        <div id="evtmem" class="team_section">
-            <h3 class="team-heading">Event Managment Team</h3>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Abhishek Kumar <i>(Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Manas Pandey <i>(Senior Batch Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Reshma Kumari <i>(Senior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sushant Kumar <i>(Senior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Shubham Dey <i>(Senior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Reshmi Kumari <i>(Senior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Rohan Kumar <i>(Senior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Biswajit Kumar Shaw <i>(Senior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Shahnawaz Ahmed <i>(Junior Batch Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Niharika Kumari <i>(Junior Batch Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Shradha <i>(Junior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Arzamaan Maaz <i>(Junior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Aryan Chandra <i>(Junior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Roshni Gupta <i>(Junior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Md. Javed <i>(Junior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Anamika Kumari <i>(Junior Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
+            <?php
+                if(!$result){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                        echo '<div class="main_members"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="120" height="120"/> <div> <h4>'.$row['name'].'<i>('.$row['designation'].')</i></h4><p>'.$row['class'].'</p></div></div>';
+                    }
+                }
+            ?>
         </div>
 
         <div id="pubrelmem" class="team_section">
             <h3 class="team-heading">Public Relation Team</h3>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Mehanjul Hassan <i>(Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Rohan Kumar <i>(Senior Batch Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Mohit Kumar Sahu <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Purushottam Mahapatra <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sushant Kumar <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Tushar Satyam <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Damini Kumari <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Jyoti Rani Shaw <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Shubham Paul <i>(Senior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Arzamaan Maaz <i>(Junior Batch Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Amaan Ahmed <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Aryan Chandra <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sidhant Basa <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sujata Gorai <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Umesh Mahato <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Nitish Rana <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Prince Yadav <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Pushkar Kumar Sahu <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Ritesh Sankritya <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Priya Kumari <i>(Junior Batch Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
+            <?php
+                if(!$result1){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result1,MYSQLI_ASSOC)){
+                        echo '<div class="main_members"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="120" height="120"/> <div> <h4>'.$row['name'].'<i>('.$row['designation'].')</i></h4><p>'.$row['class'].'</p></div></div>';
+                    }
+                }
+            ?>
         </div>
 
         <div id="techcelmem" class="team_section">
             <h3 class="team-heading">Technical Cell Team</h3>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Adarsh Kumar <i>(Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Rampukar Kumar <i>(Team Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Abhishek Layek <i>(Team Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Umesh Mahato <i>(Team Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Simran Kaur <i>(Team Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Lovely Patel <i>(Senior Advisor)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Akshya Kumar Jha <i>(Senior Advisor)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Riya Rani Singh <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sanjay Kumar <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Puja Kumari <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
+            <?php
+                if(!$result2){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
+                        echo '<div class="main_members"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="120" height="120"/> <div> <h4>'.$row['name'].'<i>('.$row['designation'].')</i></h4><p>'.$row['class'].'</p></div></div>';
+                    }
+                }
+            ?>
+        </div>
+
+        <div id="evtmem" class="team_section">
+            <h3 class="team-heading">Event Managment Team</h3>
+            <?php
+                if(!$result3){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result3,MYSQLI_ASSOC)){
+                        echo '<div class="main_members"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="120" height="120"/> <div> <h4>'.$row['name'].'<i>('.$row['designation'].')</i></h4><p>'.$row['class'].'</p></div></div>';
+                    }
+                }
+            ?>
         </div>
 
         <div id="webappmem" class="team_section">
             <h3 class="team-heading">Web App Development Team</h3>
-            <div class="main_members"><img src="suraj.png" width="120" height="120"/><div><h4>Suraj Singh <i>(Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Lovely Patel <i>(Co-Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Gaurav Kumar <i>(Co-Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Sweta Kumari <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Mehnajul Hassan <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Ritu Kumari <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Madhumita Kujur <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Priyanka Kumari Rajak <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Priti Kumari <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Faisal Khan <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Manas Pandey <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Abhishek Kumar <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Abhishek Layek <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Shubham Gupta <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Somnath Koley <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
+            <?php
+                if(!$result4){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result4,MYSQLI_ASSOC)){
+                        echo '<div class="main_members"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="120" height="120"/> <div> <h4>'.$row['name'].'<i>('.$row['designation'].')</i></h4><p>'.$row['class'].'</p></div></div>';
+                    }
+                }
+            ?>
         </div>
 
         <div id="contwriter" class="team_section">
             <h3 class="team-heading">Content Writer Team</h3>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Priti Kumari <i>(Team Leader)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Aman Kumar <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Gaurav Kumar <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Aman Keshri <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Akansha Kumari <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
-            <div class="main_members"><img src="founder.png" width="120" height="120"/><div><h4>Isha Rani Das <i>(Member)</i></h4><p>loren epsum this is just an example of team settings.</p></div></div>
+            <?php
+                if(!$result5){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result5,MYSQLI_ASSOC)){
+                        echo '<div class="main_members"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'" width="120" height="120"/> <div> <h4>'.$row['name'].'<i>('.$row['designation'].')</i></h4><p>'.$row['class'].'</p></div></div>';
+                    }
+                }
+            ?>
         </div>
 
         <?php include('include/footer.php');?>

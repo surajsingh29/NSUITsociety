@@ -9,9 +9,9 @@
                     </div>
                     <div class="footer-contact">
                         <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/nsu.jamshedpur/" target="_blank"><i class="fa fa-facebook" ></i></a>
+                            <a href="https://www.instagram.com/nsujamshedpur/?hl=en" target="_blank"><i class="fa fa-instagram" ></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=9386817857&text=&source=&data=" target="_blank"><i class="fa fa-whatsapp"></i></a>
                              <a href="#"><i class="fa fa-twitter"></i></a>   
                         </div>
                         <div class="footer-address" id="visit" style="color: antiquewhite;">
@@ -24,30 +24,30 @@
                 <div class="footer-content">
                     <h2>Quick Links</h2>
                     <ul class="quicklinks">
-                        <li><a href="C:\xampp\htdocs\University\index.html">Home</a></li>
-                        <li><a href="aboutus.html">About Us</a></li>
-                        <li><a href="Gallery.html">Gallery</a></li>
-                        <li><a href="campuslife.html">Campus Life</a></li>
-                        <li><a href="Career.html">Career</a></li>
+                        <li><a href="https://nsuniv.ac.in" target="_blank">University</a></li>
+                        <li><a href="https://nsuniv.ac.in/about-nsu?aboutus">About Us</a></li>
+                        <li><a href="https://nsuniv.ac.in/gallery">Gallery</a></li>
+                        <li><a href="https://nsuniv.ac.in/campus-life">Campus Life</a></li>
+                        <li><a href="https://nsuniv.ac.in/career">Career</a></li>
                         <li><a href="#">Xplore</a></li>
-                        <li><a href="infra.html">Infrastructure</a></li>
+                        <li><a href="https://nsucms.in/nsucms/student/student_login">Login</a></li>
                     </ul>
                 </div>
                 <div class="footer-content">
                     <h2>Know More</h2>
                     <ul class="quicklinks">
-                        <li><a href="offlineadm.html">Offline Admission</a></li>
-                        <li><a href="onlineadm.html">Online Admission</a></li>
-                        <li><a href="placement.html">Placement</a></li>
-                        <li><a href="placement.html#list_recruiters">List of Recruiters</a></li>
+                        <li><a href="https://nsuniv.ac.in/apply-online?offline-admission">Offline Admission</a></li>
+                        <li><a href="https://nsuniv.ac.in/apply-online?online-admission">Online Admission</a></li>
+                        <li><a href="https://nsuniv.ac.in/placement?placements">Placement</a></li>
+                        <li><a href="https://nsuniv.ac.in/placement?list-of-recruiters">List of Recruiters</a></li>
+                        <li><a href="https://nsuniv.ac.in/placement?appointment-letter">Appointment Letter</a></li>
+                        <li><a href="https://nsuniv.ac.in/placement?contact">Placement Contact</a></li>
                         <li><a href="brochure.pdf">Download Brochure</a></li>
-                        <li><a href="alumni.html">Alumni</a></li>
-                        <li><a href="news.html">news</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-foot">
-                Copyright &copy; 2021 <a href="https://www.instagram.com/surajsingh4170">Suraj Singh</a>
+                Copyright &copy; 2021 <a href="team.php#webappmem">NSU IT Society Web Team</a>
             </div>
         </div>
         </footer>

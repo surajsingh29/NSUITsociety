@@ -25,8 +25,9 @@ $("#contactform").submit(function(event){
 
 });
 
-function dataReset()
-{
+
+
+function dataReset() {
     document.getElementById('contactform').reset();
 }
 

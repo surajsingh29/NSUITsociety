@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2021 at 04:16 PM
+-- Generation Time: Nov 24, 2021 at 05:17 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -34,9 +34,98 @@ CREATE TABLE `contact` (
   `phone` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Table structure for table `contentteam`
 --
+
+CREATE TABLE `contentteam` (
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(30) NOT NULL,
+  `class` varchar(30) NOT NULL,
+  `image` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eventteam`
+--
+
+CREATE TABLE `eventteam` (
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(30) NOT NULL,
+  `class` varchar(30) NOT NULL,
+  `image` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `name` varchar(30) DEFAULT NULL,
+  `designation` varchar(30) DEFAULT NULL,
+  `qualification` varchar(50) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `image` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pubrelteam`
+--
+
+CREATE TABLE `pubrelteam` (
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(30) NOT NULL,
+  `class` varchar(30) NOT NULL,
+  `image` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `society_members`
+--
+
+CREATE TABLE `society_members` (
+  `name` varchar(30) DEFAULT NULL,
+  `designation` varchar(20) DEFAULT NULL,
+  `class` varchar(20) DEFAULT NULL,
+  `image` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technicalteam`
+--
+
+CREATE TABLE `technicalteam` (
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(30) NOT NULL,
+  `class` varchar(30) NOT NULL,
+  `image` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `webappteam`
+--
+
+CREATE TABLE `webappteam` (
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(10) NOT NULL,
+  `class` varchar(20) NOT NULL,
+  `image` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for table `contact`

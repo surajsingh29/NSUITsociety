@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+include('events.php');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +33,17 @@
         }
 
         .profiles a:hover{
+            background-color: #1b4169;
+            color: white;
+        }
+
+        .adminbtn{
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            border-radius: 3px;
+            border-color: white;
+            padding: 5px 20px;
             background-color: #1b4169;
             color: white;
         }
@@ -82,11 +97,33 @@
                 <a href="team.php">Team Members</a>
             </div>
         </div>
+
+        <div class="events-section">
+        <div class="events-header" id="events">
+            <center><h1>Events</h1></center>
+        </div>
+        <div class="events-content">
+            <?php
+                if(!$result){
+                    echo '<div class="alert alert-danger"> Error running the query! </div>';
+                    exit;
+                }else{
+                    while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                        echo '<div class="content-body"><img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'"/> <h4>'.$row['name'].'</h4><p>'.$row['shortdesc'].'</p></div>';
+                    }
+                }
+            ?>
+        </div>
+        <div class="events-footer">
+            <button class="btn-lg blue">Read more</button>
+        </div>
+        </div>
         
         <?php include('include/footer.php');?>
 
-    
-
+        <form method="GET" action="admin.php">
+            <button class="adminbtn" type="submit">Admin</button>
+        </form>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>

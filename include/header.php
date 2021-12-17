@@ -16,13 +16,16 @@
                       <span class="sr-only">Toggle navigation</span>
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
                       <span class="icon-bar"></span>                  
                   </button>
 			</div>
 			<div class="navbar-collapse collapse" id="navbarCollapse">
                   <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://nsuniv.ac.in" target="_blank">University</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="index.php#about">About</a></li>
-                    <li><a href="events.php">Events</a></li>
+                    <li><a href="index.php#events">Events</a></li>
                     <li><a href="#contactmodal" data-toggle="modal">Contact us</a></li>
                   </ul>
               </div>

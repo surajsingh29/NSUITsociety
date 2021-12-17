@@ -1,8 +1,8 @@
 <?php
 ?>
-<footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-body">
+            <!--<div class="footer-body">
                 <div class="footer-content">
                     <div class="footer-brand">
                         <img src="img/nsu.png" alt="logo"/>
@@ -45,9 +45,9 @@
                         <li><a href="brochure.pdf">Download Brochure</a></li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
             <div class="footer-foot">
                 Copyright &copy; 2021 <a href="team.php#webappmem">NSU IT Society Web Team</a>
             </div>
         </div>
-        </footer>
+    </footer>

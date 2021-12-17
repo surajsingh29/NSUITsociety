@@ -25,6 +25,33 @@ $("#contactform").submit(function(event){
 
 });
 
+$("#adminloginform").submit(function(event){ 
+    //prevent default php processing
+    event.preventDefault();
+    //collect user inputs
+    var datatopost = $(this).serializeArray();
+//    console.log(datatopost);
+    //send them to login.php using AJAX
+    $.ajax({
+        url: "login.php",
+        type: "POST",
+        data: datatopost,
+        success: function(data){
+            if(data == 'success'){
+                window.location = "dashboardsetting.php";
+            }else{
+                $('#loginmessage').html(data);   
+            }
+        },
+        error: function(){
+            $("#loginmessage").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+            
+        }
+    
+    });
+
+});
+
 
 
 function dataReset() {

@@ -70,6 +70,44 @@ body{
 	margin: 0 10%;
 }
 
+.events-section{
+    background-color: whitesmoke;
+    width: 100%;
+    text-align: center;
+    height: 750px;
+}
+
+.events-header{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.events-content{
+    display: inline-flex;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.content-body{
+    display: block;
+    width: 33%;
+    text-align: center;
+}
+
+.content-body img{
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.content-body h4{
+    font-weight: 700;
+}
+
+.content-body p{
+    padding: 0 20px;
+}
+
+
 .profiles{
 	text-align: center;
     padding-bottom: 15px;
@@ -165,6 +203,8 @@ body{
 .aos-init ul li a:hover{
     color: #ff2222;
 }
+
+
 
 .footer-container{
     background-color: #1b4169;

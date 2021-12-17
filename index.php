@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-include('events.php');
+include('connection.php');
+
+$sql = "select * from events order by event_no desc limit 3";
+$result = mysqli_query($link, $sql);
 
 ?>
 <!DOCTYPE html>
@@ -115,7 +118,9 @@ include('events.php');
             ?>
         </div>
         <div class="events-footer">
-            <button class="btn-lg blue">Read more</button>
+            <form method="GET" action="events.php">
+                <button class="btn-lg blue" type="submit">Read more</button>
+            </form>
         </div>
         </div>
         
